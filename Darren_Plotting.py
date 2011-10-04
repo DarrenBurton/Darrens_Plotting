@@ -153,11 +153,15 @@ class List_Files(object):
   def Scaling_Function(self, **karg):
         if karg["Scale"] == False:
             Scale_Choice = raw_input("\nHow much Luminosity are you scaling MC to (fb)? ")
-            try:
-               self.Scale_Factor = float(Scale_Choice)*1000
-            except :
-                print "\nNumber must be entered you mug. Exiting"
-                sys.exit()                
+        else: Lumo_Choice = raw_input("\n How much Luminosity is this (fb)\n")  
+        try:
+            if karg["Scale"] == False: 
+              self.Scale_Factor = float(Scale_Choice)*1000
+              self.Lumo_Factor = float(Scale_Choice)
+            else: self.Lumo_Factor = float(Lumo_Choice)
+        except ValueError:
+            print "\nNumber must be entered you mug. Exiting"
+            sys.exit()                
       
   def Check_pass(self,Add_Hist,Name,num):
         if not "P" in Add_Hist:
@@ -209,7 +213,7 @@ class List_Files(object):
           Progress = Menu_Opt.Wrong_Selection(Pick_File, str(self.Root_File_Num), lambda: self.File_Chooser(Type = self.plot_type, Data = self.is_data, addition = self.is_funky))
           if Progress == False:
               self.FILES.append(self.Root_File_List[int(Pick_File)])
-              self.MC_Name = ["Data"]
+              self.MC_Name = ["Data"] 
         print " Moving On To Plot Selection "       
         self.Hist_Colour = self.Default_Colours
         if karg["addition"] == True:
@@ -231,7 +235,7 @@ class List_Files(object):
               Progress = Menu_Opt.Wrong_Selection(Pick_MC, Pick_Combined_Individual, lambda: self.File_Chooser(Type = self.plot_type, Data = self.is_data, addition = self.is_funky))    
           if Pick_MC == "1":
               self.Pick_Combined = raw_input("Choose Combined MC File ")
-              self.Check_pass(self.Pick_Combined, "Combined MC",1)
+              self.Check_pass(self.Pick_Combined, "MC",1)
               Progress = Menu_Opt.Wrong_Selection(self.Pick_Combined, str(self.Root_File_Num), lambda: self.File_Chooser(Type = self.plot_type, Data = self.is_data, addition = self.is_funky))    
               Progress = self.Multi_File_Checker(self.FILES)
           if Pick_MC == "2":
@@ -244,7 +248,7 @@ class List_Files(object):
               self.Check_pass(self.Pick_WJets, "WJets",3)
               self.Pick_ZJets = raw_input("Choose ZJets File... ")
               Progress = Menu_Opt.Wrong_Selection(self.Pick_ZJets, str(self.Root_File_Num), lambda: self.File_Chooser(Type = self.plot_type, Data = self.is_data, addition = self.is_funky))    
-              self.Check_pass(self.Pick_ZJets, "ZJets",4)
+              self.Check_pass(self.Pick_ZJets, "Z inv",4)
               self.Pick_TTbar = raw_input("Choose TTbar File... ")
               Progress = Menu_Opt.Wrong_Selection(self.Pick_TTbar, str(self.Root_File_Num), lambda: self.File_Chooser(Type = self.plot_type, Data = self.is_data, addition = self.is_funky))    
               self.Check_pass(self.Pick_TTbar, "TTbar",5)
@@ -344,7 +348,7 @@ class PlotCreator(object):
         print "   | Ok. How would you like to make these plots?                     |"
         print "   |-----------------------------------------------------------------|"
         print "   | S = Quick Plot                                                   "
-        print "   |     [No Legend (For Now), Default Colours, Data Drawn As Points]   "
+        print "   |     [Default (Colours,Legend), Data Drawn As Points]             "
         print "   | 0 - {0:-3d} = To Pick Options For Specific Plots                 ".format(Hist_Length) 
         print "   | A = Choose Options To Apply For All Plots                        "
         print "   | Q = Quit                                                         "
@@ -400,23 +404,43 @@ class PlotCreator(object):
                 self.Option_Chooser(self.Plot_Names[l])    
                 self.OPTION_HOLDER[int(k)] = self.Individual_option_holder
             self.Plot_Producer()
+        
 
     def Option_Chooser(self, plot_list, **karg):
         self.complete = True
-        self.Option_Listings = ["0","1","2","3"]
+        self.Option_Listings = ["P","0","1","2","3","4","5"]
+        self.Funky_Opts = ["3","4","5"]
         print "============================================"
         print "|  [0] - Set Log-Scale                     |"
         print "|  [1] - Set X-axis Scale                  |"
         print "|  [2] - Set Y-axis Scale                  |"
-        print "|  [3] - Stack Histos                      |"
-        print "|  [4]  - Fill Histogram                   |"
+        print "|  [3] - Stack Histos (For Data/MC only) * |"
+        print "|  [4] - Fill Histogram *                  |"
+        print "|  [5] - Change Plot Colours/Legend Name  *|"
+        print "|  [P] - Pass                              |"
         print "|  [Q] - Quit                              |"
         print "|  [M] - Return to Plot Options            |"
         print "============================================"
+        print " * Means Not Applicable to Option 4"
         
         self.Opt_Picker = raw_input("\n Choose One ... ")
         self.Opt_Splitter = [ s.strip() for s in self.Opt_Picker.split(",")]  
         Menu_Opt.Quit_Function(self.Opt_Picker,self.Option_Listings)
+        its_funky = False
+        if self.options["Funky"] == True:
+          for p in self.Opt_Splitter:
+            if p in self.Funky_Opts:
+              Return_To_Menu = True
+            else: Return_To_Menu = False  
+          if Return_To_Menu == True:
+              print " Selected Option Not available to this Histogram. Select again"
+              self.complete = True
+              its_funky = True
+              if "option_all" in karg: self.Option_Chooser(self.Plot_Names,option_all = True)
+              else: self.Option_Chooser(self.Plot_Names[self.current_plot])
+        if self.Opt_Picker == "P" :
+          print "Passing On Options for this Histogram. Move to next Histogram\n"
+          self.complete = False
         if self.Opt_Picker == "M" :
           print "\n\nReturning to Plot Options\n"
           self.Plot_Options()
@@ -424,58 +448,144 @@ class PlotCreator(object):
           Menu_Opt.Wrong_Selection(self.Opt_Splitter, self.Option_Listings, lambda: self.Option_Chooser(self.Plot_Names, option_all = True), plt_test = True, list = True)
         else :
           Menu_Opt.Wrong_Selection(self.Opt_Splitter, self.Option_Listings, lambda: self.Option_Chooser(self.Plot_Names[self.current_plot]), plot_test = True, list = True)
-        if self.complete == True:
-          if "0" in self.Opt_Splitter:
-            Repeater = True
-            Log_Y_Menu = ["1","0"]
-            while Repeater == True:
-                Log_Y = raw_input("Set Log Y  (1 or 0)... ")
-                if Log_Y in Log_Y_Menu: 
-                  Repeater = False
-                  if Log_Y == "1":  self.Individual_option_holder.append("Log_or_not|SetLogy|True")                   
-                  else : pass
-                else : print "Wrong Input Try Again"         
-            self.complete = False
-          if "1" in self.Opt_Splitter:
-            Repeater = True
-            while Repeater == True:          
-                X_axis_input = raw_input("Set X Range (Low,High) .... ")
-                X_Splitter = [ s.strip() for s in X_axis_input.split(",")]  
-                if len(X_Splitter) >2 : print " Too many inputs Try again"
-                #elif float(X_Splitter[0]) is not float : print "Non Number inputted, Try again"
-                elif float(X_Splitter[0]) > float(X_Splitter[1]): print "Range set wrongly Try again"
-                else:
-                  x,y = float(X_Splitter[0]), float(X_Splitter[1]) 
-                  self.Individual_option_holder.append("X_Axis|SetAxisRange|%f,%f" %(x,y))                
-                  Repeater = False         
-            self.complete = False           
-          if "2" in self.Opt_Splitter:
-            Repeater = True
-            while Repeater == True:          
-                Y_axis_input = raw_input("Set Y Range (Low,High) .... ")
-                Y_Splitter = [ s.strip() for s in Y_axis_input.split(",")]  
-                if len(Y_Splitter) >2 : print " Too many inputs Try again"
-                #elif float(X_Splitter[0]) is not float : print "Non Number inputted, Try again"
-                elif float(Y_Splitter[0]) > float(Y_Splitter[1]): print "Range set wrongly Try again"
-                else:
-                  x,y = float(Y_Splitter[0]), float(Y_Splitter[1]) 
-                  self.Individual_option_holder.append("Y_Axis|SetAxisRange|%f,%f" %(x,y))                
-                  Repeater = False         
-            self.complete = False 
-          if "3" in self.Opt_Splitter: 
-              Repeater = True
-              while Repeater == True:
-                List_Name_Listings = []
-                print "===================================="
-                for i in range (0,len(self.file_list)):
-                  print "%s  | %s " %(i,a.MC_Name[i])
-                  List_Name_Listings.append(a.MC_Name[i])
-                print "===================================="  
-                Stack_Histo_Input = raw_input("Which Histos Do you want to stack?")
-                Stack_Histo_Splitter = [s.strip() for s in Stack_Histo_Input.split(",")]
-                Repeater = False
-              self.complete = False  
+        if its_funky == False:
+          if self.complete == True:
+            if "0" in self.Opt_Splitter:
+              self.Repeater = True
+              Log_Y_Menu = ["1","0"]
+              while self.Repeater == True:
+                  Log_Y = raw_input("Set Log Y  (1 or 0)... ")
+                  if Log_Y in Log_Y_Menu: 
+                    self.Repeater = False
+                    if Log_Y == "1":  self.Individual_option_holder.append("Log_or_not|SetLogy|True")                   
+                    else : pass
+                  else : print "Wrong Input Try Again"         
+              self.complete = False
+            if "1" in self.Opt_Splitter:
+              self.Repeater = True
+              while self.Repeater == True:
+                  self.Repeater = False
+                  X_axis_input = raw_input("Set X Range (Low,High) .... ")
+                  X_Splitter = [ s.strip() for s in X_axis_input.split(",")] 
+                  self.Num_Checker(X_Splitter,2,X_Splitter[0],X_Splitter[1])       
+                  if self.Repeater ==False:
+                    x,y = float(X_Splitter[0]), float(X_Splitter[1]) 
+                    self.Individual_option_holder.append("X_Axis|SetAxisRange|%f,%f" %(x,y))                
+                    self.Repeater = False         
+              self.complete = False           
+            if "2" in self.Opt_Splitter:
+              self.Repeater = True
+              while self.Repeater == True:          
+                  self.Repeater = False
+                  Y_axis_input = raw_input("Set Y Range (Low,High) .... ")
+                  Y_Splitter = [ s.strip() for s in Y_axis_input.split(",")]  
+                  self.Num_Checker(Y_Splitter,2,Y_Splitter[0],Y_Splitter[1])
+                  if self.Repeater ==False:
+                    x,y = float(Y_Splitter[0]), float(Y_Splitter[1]) 
+                    self.Individual_option_holder.append("Y_Axis|SetAxisRange|%f,%f" %(x,y))                        
+              self.complete = False 
+            if "3" in self.Opt_Splitter:
+                self.Repeater = True
+                while self.Repeater == True:
+                  self.StackHolder = []
+                  print "===================================="
+                  for i in range (0,len(self.file_list)):
+                    print "%s  | %s " %(i,a.MC_Name[i])
+                  print "===================================="  
+                  Stack_Histo_Input = raw_input("Which Histos do you want to stack?")
+                  Stack_Histo_Splitter = [s.strip() for s in Stack_Histo_Input.split(",")]
+                  try:
+                    print "\nStacking\n"
+                    for l in Stack_Histo_Splitter:
+                      print " %s | %s" %(l, a.MC_Name[int(l)])
+                      self.StackHolder.append(int(l))
+                    print "========================"   
+                    self.Repeater = False
+                  except ValueError or IndexError:
+                    print "Bad Input Try Again"
+                    self.Repeater = True
+                self.Individual_option_holder.append("Stack_It|NA|NA")
+                self.complete = False  
+            if "4" in self.Opt_Splitter:
+              self.Repeater = True
+              while self.Repeater == True:
+                  self.FillHolder = []
+                  print "===================================="
+                  for i in range (0,len(self.file_list)):
+                    print "%s  | %s " %(i,a.MC_Name[i])
+                  print "===================================="  
+                  Fill_Histo_Input = raw_input('Which Histos would you like to Fill?')
+                  Fill_Histo_Splitter = [s.strip() for s in Fill_Histo_Input.split(",")]
+                  try:
+                    print "Filling"
+                    for l in Fill_Histo_Splitter:
+                      print " %s | %s" %(l, a.MC_Name[int(l)])
+                      self.FillHolder.append(int(l))
+                    print "==========================="  
+                    self.Repeater = False
+                  except ValueError or IndexError:
+                    print "Bad Input Try Again"
+                    self.Repeater = True
+              self.Individual_option_holder.append("Fill_It|NA|NA") 
+              self.complete = False      
+            if "5" in self.Opt_Splitter:
+              self.Repeater = True
+              while self.Repeater == True:
+                Change_List = []
+                Number_List = []
+                print "================================"
+                print "=Num=== Name ====== Colour ====="
+                for num,i in enumerate(a.MC_Name):
+                  print "  %s |  %8s    |  %s  " %(num, i, a.Hist_Colour[num])
+                  Number_List.append(num)
+                Plot_Change_Input = raw_input("\n What Num do you want to change? \n")  
+                Plot_Change_Splitter = [s.strip() for s in Plot_Change_Input.split(",")]
+                for choice in Plot_Change_Splitter:
+                  Change_List.append(choice)
+                  if int(choice) not in Number_List:
+                    print " You've selected a number not in the list. Do it again"
+                    self.Repeater = True
+                  else : self.Repeater = False  
+                Change_Selector = ["N","C","B"]
+                if self.Repeater == False:
+                  for j in Change_List:
+                    print "Ok what do you want to change for %s \n" %j
+                    Changing_Time_Input = raw_input("Enter N - Name, C - Colour, B - Both\n")
+                    try:
+                      self.Repeater = False
+                      if Changing_Time_Input == "N":
+                        Name_Change_Input = raw_input("Change name to what?\n")
+                        a.MC_Name[int(j)] = Name_Change_Input
+                      if Changing_Time_Input == "C":
+                        Colour_Change_Input = raw_input("Change colour to what?\n")
+                        a.Hist_Colour[int(j)] = int(Colour_Change_Input)
+                      if Changing_Time_Input == "B":
+                        Name_Change_Input = raw_input("Change name to what?\n")
+                        a.MC_Name[int(j)] = Name_Change_Input
+                        Colour_Change_Input = raw_input("Change colour to what?\n")
+                        a.Hist_Colour[int(j)] = int(Colour_Change_Input)
+                      elif Changing_Time_Input not in Change_Selector : 
+                        print "Incorrect Option Selected\n\n"
+                        self.Repeater = True   
+                    except ValueError or IndexError:
+                        print "Bad Input Try Again"
+                        self.Repeater = True
+                self.complete = False
           return
+          
+    def Num_Checker(self,CheckList,maxlength,To_Checkone,To_Checktwo):
+      try:
+        float(To_Checkone)
+        float(To_Checktwo)
+        if len(CheckList) > int(maxlength):
+          print "Too many inputs Try again"
+          self.Repeater = True
+        if float(To_Checkone) > float(To_Checktwo):
+          print "Range set wrongly Try again"
+          self.Repeater = True
+      except ValueError:
+        print "Non-Number Inputted Try Again"
+        self.Repeater = True
 
     def Option_File(self, Apply_To_Hist, Options_Passed):
         if "Empty" in Options_Passed:
@@ -492,15 +602,18 @@ class PlotCreator(object):
               for j in range(0, len(variable.split(','))):
                 multi_argument.append(float(variable.split(',')[j]))
               if special_opt == "Y_Axis":
-                multi_argument.append("\"Y\"")
+                multi_argument.append("y")
+              if special_opt == "X_Axis":
+                multi_argument.append("x")
             if hasattr(Apply_To_Hist,split_opt):
               if len(variable.split(','))  == 1:
                   applyer = getattr(Apply_To_Hist,split_opt)
                   applyer(test)
-              else: 
+              else:
                   applyer = getattr(Apply_To_Hist,split_opt)
+                  if len(multi_argument) == 2:
                   #applyer(multi_argument[i] for i,j in enumerate(multi_argument))
-                  applyer(multi_argument[0],multi_argument[1])
+                    applyer(multi_argument[0],multi_argument[1])
                   if len(multi_argument) == 3:
                     applyer(multi_argument[0],multi_argument[1],multi_argument[2])
 
@@ -513,19 +626,29 @@ class PlotCreator(object):
        self.hist_list = self.new_hist_list
       
     def Funky_Plotter(self):
+        
+        self.Funky_FolderList = Get_Histo_Names(a.FILES[0])[3]
+        Funky_Legends = []
+        for i in self.Funky_FolderList:
+          Funky_Legend_Input = raw_input("What Legend entry do you want for %s?\n" % i)
+          Funky_Legends.append(Funky_Legend_Input)
+        option_counter = 0  
         for num in range(0,len(self.HIST_GROUPED),len(self.folder_list)):
-            lower = num 
+            lower = num
             higher = lower + len(self.folder_list)
             print "\n Making Histogram %s" % self.HIST_NAMED[num]
             c1 = r.TCanvas("canvas"+str(num),"canname"+str(num),1200,1200)     
             c1.cd(1)
-            #self.Option_File(c1,self.OPTION_HOLDER[num])
+            self.Option_File(c1,self.OPTION_HOLDER[option_counter])
             if self.options["MC_Scale"] != 0: self.norm  = self.options["MC_Scale"]/100
             for plot in range(lower,higher,1):
               if plot == lower:
+                self.Legend_Maker()
                 colour_changer = 0
                 First = self.HIST_GROUPED[lower][0]
                 First.Scale(self.norm)
+                self.Option_File(First,self.OPTION_HOLDER[option_counter])
+                self.leg.AddEntry(First,Funky_Legends[0],"L")
                 print " Drawing %s " %self.HIST_GROUPED[lower][0]
                 if hasattr(First,"SetLineColor"):
                       colour_applyer = getattr(First,"SetLineColor") 
@@ -535,15 +658,34 @@ class PlotCreator(object):
                 print " Drawing %s" %self.HIST_GROUPED[plot][0]
                 next = self.HIST_GROUPED[plot][0]
                 next.Scale(self.norm)
+                self.leg.AddEntry(next,Funky_Legends[colour_changer],"L")
                 if hasattr(next,"SetLineColor"):
                       colour_applyer = getattr(next,"SetLineColor") 
                       colour_applyer(a.Hist_Colour[colour_changer])
                 next.Draw("samehist")
-              colour_changer += 1  
-            c1.SaveAs("%s/%s.png"% (self.Out_dir, self.HIST_NAMED[num]))
+              colour_changer += 1 
+            self.leg.Draw("same")  
+            c1.SaveAs("%s/%s.jpg"% (self.Out_dir, self.HIST_NAMED[num]))
             print "Done. On To the Next One."
+            self.Webpage_List.append("%s.jpg"% self.HIST_NAMED[num])
+            option_counter += 1
+        if self.webpage_maker == True:
+          self.HTMLMaker(self.Out_dir, self.Webpage_List) 
+        print "\n\nOk All Done!!!!"  
         sys.exit() 
     
+    def HTML_Maker(self,Outputdir,Plot_Names):
+      print "\n       ================================" 
+      print "       ======== Making Webpage ========"
+      print "       ********************************\n\n"
+      HTMLfile = open(''+Outputdir+'/Plots.html','w')
+      HTMLfile.write('Directory : '+Outputdir+' \n')
+      HTMLfile.write('<br>\n')
+      for hist in Plot_Names:
+        HTMLfile.write('<div style="float: left">')
+        HTMLfile.write('<a href="'+hist+'">')
+        HTMLfile.write('<embed src= \"'+hist+'\", TITLE ="'+hist+'" width=480 height=365></a></div>')
+
     def Plot_Producer(self):
         if self.options["Funky"] == True: self.For_Funky()
         self.HIST_GROUPED = []
@@ -561,13 +703,27 @@ class PlotCreator(object):
           
         self.Plot_Ending()
 
+    def Legend_Maker(self):
+        self.leg = r.TLegend(0.70,0.75,0.93,0.9)
+        title = "\int L dt = %s fb^{-1}" % a.Lumo_Factor
+        self.leg.SetHeader(title)
+        self.leg.SetShadowColor(0)
+        self.leg.SetBorderSize(0)
+        self.leg.SetFillColor(0)
+        self.leg.SetLineColor(0)
+      
     def Plot_Ending(self):
         self.norm = 1
+        self.Webpage_List = []
+        Produce_Webpage_Input = raw_input("\n Do you want to make this a webpage? (Y or N)\n")
+        if "Y" in Produce_Webpage_Input: self.webpage_maker = True
+        else : self.webpage_maker = False
         if self.options["Funky"] == True:
             self.Funky_Plotter()
             sys.exit()
         for hist_num,j in enumerate(self.HIST_GROUPED):
             Stacked_Histo = r.THStack()
+            self.Legend_Maker()
             print "\n Making Histogram %s" % self.HIST_NAMED[hist_num]
             c1 = r.TCanvas("canvas"+str(hist_num),"canname"+str(hist_num),1200,1200) 
             self.Option_File(c1,self.OPTION_HOLDER[hist_num])
@@ -582,18 +738,35 @@ class PlotCreator(object):
                     First = self.HIST_GROUPED[hist_num][0]
                     First.Scale(self.norm)
                     self.Option_File(First,self.OPTION_HOLDER[hist_num])
-                    First.Draw("p")
+                    First.Draw("P")
+                    self.leg.AddEntry(First,a.MC_Name[l],"L")
                 else:
                     p = self.HIST_GROUPED[hist_num][l]
                     p.Scale(self.norm)
+                    p.SetLineWidth(3)
+                    self.leg.AddEntry(p,a.MC_Name[l],"L")
                     if hasattr(p,"SetLineColor"):
-                      colour_applyer = getattr(p,"SetLineColor") 
-                      colour_applyer(a.Hist_Colour[l])
-                      #colour_applyer(kBlue)
-                    #self.Option_File(l,self.OPTION_HOLDER[hist_num])
-                    p.Draw("histsame")
-            c1.SaveAs("%s/%s.png"% (self.Out_dir, self.HIST_NAMED[hist_num]))
+                       colour_applyer = getattr(p,"SetLineColor") 
+                       colour_applyer(a.Hist_Colour[l])
+                    if "Fill_It|NA|NA" in self.OPTION_HOLDER[hist_num]:
+                      if l in self.FillHolder:
+                        p.SetFillColor(a.Hist_Colour[l])
+                    if "Stack_It|NA|NA" in self.OPTION_HOLDER[hist_num]:
+                      if l in self.StackHolder:
+                        Stacked_Histo.Add(p)
+                      else:
+                        p.Draw("histsame")
+                    else:
+                       p.Draw("histsame")  
+            Stacked_Histo.Draw("histsame")
+            First.Draw("Psame")
+            self.leg.Draw("same")
+            c1.SaveAs("%s/%s.jpg"% (self.Out_dir, self.HIST_NAMED[hist_num]))
+            self.Webpage_List.append("%s.jpg" % self.HIST_NAMED[hist_num])
             print "Done. On To the Next One."
+        if self.webpage_maker == True:
+          self.HTML_Maker(self.Out_dir,self.Webpage_List)
+        print "\n\nOk All Done!!!"    
         sys.exit() 
 
 class PlotSelector(object):
