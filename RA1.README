@@ -1,0 +1,82 @@
+INSTRUCTION FOR USING RA1 PLOTTER
+
+A Menu Based Plotting Script, designed for use for producing histograms from root files made using SusyCAF code.
+
+Before Running :
+---------------
+Ensure .tdr style is placed in same folder as script
+All root files which you wish to plot from are within the same folder
+---------------
+
+== Start Screen ==
+
+You are presented with 4 options depending on the type of histograms you wish to produce.
+
+1. Data only - Takes a single Root File which is interpretted as data
+
+2. MC only - Takes a single Root File which is then scaled according to the desired luminosity 
+
+3. Data and MC - Takes a single Data File and a single/multiple Root Files for Combined MC/Individual MC. 
+                 n.b. Currently Individual options are for RA1 analysis (i.e. WJets,Zinv,QCD,TTbar and CmSSM Testing Points)
+                 If the same root file is specified twice then Error is thrown and returned to initial selection
+
+4. MultiFolder Plots - Takes a single root File and is for the purpose of comparing Data/MC at different cut values or at different places in the cut flow within the same                              histogram. It is necessary that the subfolders within each Directory be named the same. E.g. In Producing the root files the directory names may be named                        [Example 1 , Example 2, Example 3] but the subfolders within each should have the same Titles. Each histogram will then be produced with Example 1,2 and 3                       overlayed on the same Histogram.      
+
+-------------------
+== Plot Selection == 
+
+.After root file selection, The directories and subfolders within the FIRST root file are shown (Therefore if option 3 is chosen, MC files MUST have the same directory and subfolder structure as the data file). Individual directories can be selected through the relevant number or all directories can be selected with 'A'.
+
+.The option to select histograms with the name '_all' is then given. (Not selecting just '_all' will show all histograms which are binned by jet multiplicity in RA1).
+
+.The list of histograms are then displayed. Individual histograms can be selected by typing in the corresponding number seperated by a ,. E.g 1,5,7,8. All Histograms can be selected with 'A'. 
+
+An Incorrect Selection will throw an error and the option to try again will be given.
+
+---------------
+== Making Plots  ==
+
+. You are then prompted to input your output directory. Directory will be appended too if it already exists.
+
+. At this point and specific options can be applied to individual or collective histograms.
+
+S - Produces the plots according to the binning and ranges specified when the histos are booked in the SusyCAF code. Default Legend and Colors are placed on each histogram
+A - Choose to apply options to every histogram in the 'to be plotted' list
+num - Individual histograms can be specified by typing the corresponding number seperated by a ,. E.g 1,5,7,8. Histograms not selected will be plotted in the Default style
+
+    -- Plotting Options --
+============================================
+|  [0] - Set Log-Scale                     |
+|  [1] - Set X-axis Scale                  |
+|  [2] - Set Y-axis Scale                  |
+|  [3] - Stack Histos (For Data/MC only) * |
+|  [4] - Fill Histogram *                  |
+|  [5] - Change Plot Colours/Legend Name  *|
+|  [P] - Pass                              |
+|  [Q] - Quit                              |
+|  [M] - Return to Plot Options            |
+============================================
+ * Means Not Applicable to Option 4
+
+
+  0 - Set Log-Scale, (1 or 0) Choosing a value of 1 - Log-Scaled y axis. 0 - linear y axis.
+  1 - Input 2 values (x_low,x_high). If x_low > x_high, error is thrown
+  2 - Input 2 values (y_low,y_high). If y_low > y_high, error is thrown
+  3 - Stack Histograms - Each of the individual components may be stacked by selecting the appropriate number from the menu seperated by a ,.
+  4 - Fill Histograms  - Each of the individual components may have a filled area by selecting the appropriate number from the menu seperated by a ,.
+  5 - Change Plot Colors/Legend Name - A list of the legend names and its drawn colour is displayed. If you wish to change one of these then this can be selected by inputting         the appropriate number from the menu sperated by a ,. 
+
+Additional Options will be added with time.
+* Do not choose any of the plotting options highlighted with a * if option 4 is chosen. Choosing legend names and colours for this option is given at the point of plotting.
+
+----------------
+== Webpage ==
+
+The option to produce these plots as a webpage will be given. Selecting 'Y' will result in a webpage called Plots.html being created within the previously specified output directory. To View the webpage the html and the associated plots folder should be copied to a public space. Each of the plots are hyperlinks so that clicking on the link will enlarge the image.
+
+
+-----------
+13th Ocobter 2011
+Darren Burton 
+Imperial College
+
