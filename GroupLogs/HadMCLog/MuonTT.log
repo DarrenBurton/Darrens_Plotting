@@ -1,0 +1,332 @@
+{
+  "Dataset" : "TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1",
+  "Configuration" : 
+  {
+    "Common.AlphaT.CalcWithEt" : 1,
+    "Common.ApplyXCleaning" : 1,
+    "Common.Electrons.ApplyID" : 1,
+    "Common.Electrons.CombIsoCut" : 0.15,
+    "Common.Electrons.EtaCut" : 2.5,
+    "Common.Electrons.PtCut" : 10,
+    "Common.Electrons.RequireLooseForOdd" : 1,
+    "Common.Electrons.TightID" : 0,
+    "Common.Electrons.TrkIsoCut" : -1,
+    "Common.Jets.ApplyID" : 1,
+    "Common.Jets.EtaCut" : 3,
+    "Common.Jets.PtCut" : 36.6667,
+    "Common.Jets.TightID" : 0,
+    "Common.Muons.ApplyID" : 1,
+    "Common.Muons.CombIsoCut" : 0.1,
+    "Common.Muons.EtaCut" : 2.1,
+    "Common.Muons.PtCut" : 10,
+    "Common.Muons.RequireLooseForOdd" : 1,
+    "Common.Muons.TightID" : 1,
+    "Common.Muons.TrkIsoCut" : -1,
+    "Common.Photons.EcalIsoCut" : 4,
+    "Common.Photons.EcalIsoRel" : 0,
+    "Common.Photons.EtCut" : 25,
+    "Common.Photons.EtaCut" : 2.5,
+    "Common.Photons.EtaEBMaxCut" : 1.479,
+    "Common.Photons.EtaEEMaxCut" : 2.5,
+    "Common.Photons.EtaEEMinCut" : 1.525,
+    "Common.Photons.HadOverEmCut" : 0.05,
+    "Common.Photons.HcalIsoCut" : 2,
+    "Common.Photons.HcalIsoRel" : 0,
+    "Common.Photons.IDReq" : 3,
+    "Common.Photons.R9Cut" : 0,
+    "Common.Photons.RequireLooseForOdd" : 1,
+    "Common.Photons.SigIhIhEBCut" : 0.015,
+    "Common.Photons.SigIhIhEECut" : 0.035,
+    "Common.Photons.TrackIsoCut" : 2,
+    "Common.Photons.TrackIsoRel" : 0,
+    "Common.Photons.UseID" : 1,
+    "Common.Taus.ApplyID" : 1,
+    "Common.Taus.ElecClean" : 0,
+    "Common.Taus.EtaCut" : 2.5,
+    "Common.Taus.JetClean" : 0,
+    "Common.Taus.MuonClean" : 0,
+    "Common.Taus.PtCut" : 20,
+    "Common.Taus.TightID" : 0,
+    "Gen.Electrons.EtaCut" : 999,
+    "Gen.Electrons.PtCut" : -1,
+    "Gen.Muons.EtaCut" : 999,
+    "Gen.Muons.PtCut" : -1,
+    "LogFileFormat" : "JSON",
+    "NT7.GenMatch.ElecPzLTReqForMatch" : 998,
+    "NT7.GenMatch.JetEtaLTReq" : 100,
+    "NT7.GenMatch.MuonPzLTReqForMatch" : 998,
+    "NT7.JetCorrType" : "MC",
+    "NT7.Smear.IsJetSmeared" : 0,
+    "NT7.Smear.SmearJetFactor" : 0,
+    "NT7.Smear.SmearJetNonGaussNorm" : 0,
+    "NT7.Smear.SmearJetRespFuncFileName" : "./Response.root",
+    "NT7.Smear.SmearJetType" : "pT",
+    "NT7.Xclean.ElecCcAssocElecReq" : 0,
+    "NT7.Xclean.JetCcAssocJetReq" : 0,
+    "NT7.Xclean.MuonCcAssocMuonReq" : 0,
+    "NT7.Xclean.PhotCcAssocPhotReq" : 0,
+    "Ntuple.Electrons.LooseID" : "EIDLoose",
+    "Ntuple.Electrons.Prefix" : "electron",
+    "Ntuple.Electrons.Suffix" : "Pat",
+    "Ntuple.Electrons.TightID" : "EIDTight",
+    "Ntuple.Jets.Prefix" : "ak5Jet",
+    "Ntuple.Jets.Suffix" : "Pat",
+    "Ntuple.Jets.Uncorrected" : 0,
+    "Ntuple.Muons.LooseID" : "IsGlobalMuon",
+    "Ntuple.Muons.Prefix" : "muon",
+    "Ntuple.Muons.Suffix" : "Pat",
+    "Ntuple.Muons.TightID" : "IDGlobalMuonPromptTight",
+    "Ntuple.Photons.Prefix" : "photon",
+    "Ntuple.Photons.Suffix" : "Pat",
+    "Ntuple.SecJets.Prefix" : "ic5Jet",
+    "Ntuple.SecJets.Suffix" : "Pat",
+    "Ntuple.SecJets.Uncorrected" : 1,
+    "Ntuple.SecMuons.Prefix" : "muon",
+    "Ntuple.SecMuons.Suffix" : "PF",
+    "Ntuple.SecTaus.Prefix" : "tauHPS",
+    "Ntuple.SecTaus.Suffix" : "PF",
+    "Ntuple.Taus.LooseID" : "TauIdbyTaNCfrOnePercent",
+    "Ntuple.Taus.Prefix" : "tau",
+    "Ntuple.Taus.Suffix" : "Pat",
+    "Ntuple.Taus.TightID" : "TauIdbyTaNCfrTenthPercent",
+    "Ntuple.TerJets.Prefix" : "ak5JetJPT",
+    "Ntuple.TerJets.Suffix" : "Pat",
+    "Ntuple.TerJets.Uncorrected" : 0,
+    "Ntuple.Weight" : "User",
+    "XCleaning.ElectronJet" : 1,
+    "XCleaning.Electrons.CombIsoCut" : 0.15,
+    "XCleaning.Electrons.ElectronIsoTypePtCutoff" : 0,
+    "XCleaning.Electrons.ElectronJetDeltaR" : 0.5,
+    "XCleaning.Electrons.ElectronLooseIdRequired" : 1,
+    "XCleaning.Electrons.ElectronTightIdRequired" : 0,
+    "XCleaning.Electrons.EtaCut" : 2.5,
+    "XCleaning.Electrons.PtCut" : 10,
+    "XCleaning.Electrons.RequireLooseIdForInitialFilter" : 0,
+    "XCleaning.Electrons.TrkIsoCut" : -1,
+    "XCleaning.Jets.EtaCut" : 10,
+    "XCleaning.Jets.PtCut" : 10,
+    "XCleaning.MuonJet" : 1,
+    "XCleaning.Muons.CombIsoCut" : 0.15,
+    "XCleaning.Muons.EtaCut" : 2.5,
+    "XCleaning.Muons.ModifyJetEnergy" : 1,
+    "XCleaning.Muons.MuonIsoTypePtCutoff" : 0,
+    "XCleaning.Muons.MuonJetDeltaR" : 0.5,
+    "XCleaning.Muons.PtCut" : 10,
+    "XCleaning.Muons.RequireLooseIdForInitialFilter" : 0,
+    "XCleaning.Muons.TrkIsoCut" : -1,
+    "XCleaning.PhotonJet" : 1,
+    "XCleaning.Photons.CaloIsoCut" : 0.2,
+    "XCleaning.Photons.EtCut" : 25,
+    "XCleaning.Photons.EtaCut" : 2.5,
+    "XCleaning.Photons.EtaEBMaxCut" : 1.479,
+    "XCleaning.Photons.EtaEEMaxCut" : 2.5,
+    "XCleaning.Photons.EtaEEMinCut" : 1.525,
+    "XCleaning.Photons.IDReq" : 3,
+    "XCleaning.Photons.PhotonIsoTypePtCutoff" : 30,
+    "XCleaning.Photons.PhotonJetDeltaR" : 0.5,
+    "XCleaning.Photons.TrkIsoCut" : 2,
+    "XCleaning.Photons.UseID" : 1,
+    "XCleaning.ResolveConflicts" : 1,
+    "XCleaning.TauJet" : 0,
+    "XCleaning.Verbose" : 0
+  }
+  "Dataset Configuration" : 
+  {
+    "CrossSection" : [157.5, 157.5, 157.5, 157.5],
+    "Events" : [3701947, 3701947, 3701947, 3701947],
+    "File" : [u'', u'', u'', u''],
+    "FileList" : [u'root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_100_0_It6.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_101_0_Qua.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_102_0_tUQ.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_103_0_xrs.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_104_0_hTG.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_105_0_tow.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_106_0_Csc.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_107_0_Fad.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_108_0_rZ3.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_109_0_v3N.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_10_0_b38.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_110_0_uya.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_111_0_fW5.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_112_0_Cv4.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_113_0_KfS.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_114_1_V41.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_115_0_jgl.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_116_0_6eu.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_117_0_s72.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_118_0_nH9.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_119_0_le4.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_11_0_3GA.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_120_0_oay.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_121_0_NOl.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_122_0_xdr.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_123_0_d1v.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_124_0_2BH.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_125_0_8Rl.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_126_0_WFx.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_127_0_ldv.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_128_0_3PZ.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_129_0_KU0.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_12_0_cwT.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_130_2_qA6.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_131_0_DKT.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_132_0_E4n.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_133_0_Irg.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_134_0_QI0.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_135_0_DzP.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_136_1_qPh.root', u'root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_137_0_8gW.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_138_0_Nxt.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_139_1_5no.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_13_0_Z5E.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_140_0_RfB.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_141_0_f5j.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_142_0_X6v.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_143_0_8Dm.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_144_0_Pz5.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_145_0_7Hg.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_146_0_mCc.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_147_0_Oyc.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_148_0_33L.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_149_0_b6D.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_14_0_6K4.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_150_2_B3N.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_151_0_iD0.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_152_0_RWF.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_153_0_iH0.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_154_0_9bO.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_155_0_GNl.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_156_0_IX4.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_157_0_crb.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_158_0_luJ.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_159_0_zQp.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_15_0_m0D.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_160_0_0Yj.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_161_0_U1M.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_162_0_xhj.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_163_0_FnB.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_164_0_cOY.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_165_0_NKX.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_166_0_UZf.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_167_0_sUe.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_168_0_2nz.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_169_0_bMo.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_16_0_inm.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_170_0_X2e.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_171_0_1CY.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_172_0_nNd.root', u'root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_173_0_M8m.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_174_0_5TL.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_175_0_pkU.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_176_0_KPw.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_177_0_izz.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_178_0_WhI.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_179_0_kF4.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_17_0_7kn.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_180_0_bPM.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_181_0_gUl.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_182_0_jWq.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_183_0_ctI.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_184_0_Nj5.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_185_0_xQz.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_186_0_vpY.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_187_0_DzD.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_188_0_vYO.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_189_0_6hA.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_18_0_rhr.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_19_0_gbI.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_1_1_0FH.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_20_0_d7T.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_21_0_H8w.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_22_0_rag.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_23_0_cjD.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_24_0_3hE.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_25_0_1C7.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_26_0_3cr.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_27_0_YE3.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_28_0_fA5.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_29_0_dyV.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_2_1_tDS.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_30_0_1WH.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_31_0_uEb.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_32_0_akl.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_33_0_itr.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_34_0_Eim.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_35_0_bQw.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_36_0_q68.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_37_0_pv6.root', u'root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_38_0_7wQ.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_39_0_SUg.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_3_0_CGn.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_40_0_ViM.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_41_0_Ug2.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_42_0_VdW.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_43_0_ZJS.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_44_0_Iyw.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_45_0_ohu.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_46_0_Yw1.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_47_0_IH9.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_48_0_9sQ.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_49_0_0wq.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_4_0_hv5.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_50_0_tRZ.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_51_0_LMK.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_52_0_aZw.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_53_0_B1e.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_54_0_rQY.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_55_0_CFV.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_56_0_jOz.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_57_1_SvE.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_58_0_liB.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_59_0_MZI.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_5_0_IGf.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_60_0_8WO.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_61_0_7Hg.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_62_0_y4T.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_63_0_Bat.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_64_0_91g.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_65_0_ty5.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_66_0_9q2.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_67_0_DBM.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_68_0_DmZ.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_69_0_CjR.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_6_0_DyL.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_70_0_QWQ.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_71_0_tOR.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_72_0_IRp.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_73_0_IZE.root', u'root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_74_0_t1K.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_75_0_2i9.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_76_0_iHP.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_77_0_sR9.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_78_0_V0u.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_79_0_Yvm.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_7_0_F0z.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_80_0_KBM.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_81_0_vZz.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_82_0_Dxn.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_83_0_eez.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_84_0_xLF.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_85_0_AN1.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_86_0_iir.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_87_0_hG5.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_88_0_9sI.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_89_0_GFO.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_8_0_WAj.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_90_0_nrS.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_91_1_49h.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_92_0_jSM.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_93_0_7mM.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_94_0_i2u.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_95_0_s2G.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_96_0_iF2.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_97_0_cQG.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_98_0_BLv.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_99_0_Vk2.root , root://gfe02.grid.hep.ph.ic.ac.uk/store/user/bbetchar/ICF/automated/2011_06_21_16_32_59/SusyCAF_Tree_9_0_IVO.root'],
+    "FirstEntry" : [0, 0, 0, 0],
+    "JsonFile" : [u'../results/Muon_Analysis/Monte_Carlo/275MC//MuonMC_TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1_2.json', u'../results/Muon_Analysis/Monte_Carlo/275MC//MuonMC_TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1_1.json', u'../results/Muon_Analysis/Monte_Carlo/275MC//MuonMC_TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1_3.json', u'../results/Muon_Analysis/Monte_Carlo/275MC//MuonMC_TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1_4.json', u'../results/Muon_Analysis/Monte_Carlo/275MC//MuonMC_TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1_5.json'],
+    "LastEntry" : [0, 0, 0, 0],
+    "LogFile" : [u'../results/Muon_Analysis/Monte_Carlo/275MC//MuonMC_TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1_1.log', u'../results/Muon_Analysis/Monte_Carlo/275MC//MuonMC_TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1_2.log', u'../results/Muon_Analysis/Monte_Carlo/275MC//MuonMC_TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1_3.log', u'../results/Muon_Analysis/Monte_Carlo/275MC//MuonMC_TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1_4.log', u'../results/Muon_Analysis/Monte_Carlo/275MC//MuonMC_TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1_5.log'],
+    "Name" : [u'TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1', u'TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1', u'TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1', u'TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1'],
+    "NtupleFormat" : [u'ICF', u'ICF', u'ICF', u'ICF'],
+    "NtupleVersion" : [3, 3, 3, 3],
+    "OutputFile" : [u'../results/Muon_Analysis/Monte_Carlo/275MC//MuonMC_TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1_2.root', u'../results/Muon_Analysis/Monte_Carlo/275MC//MuonMC_TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1_1.root', u'../results/Muon_Analysis/Monte_Carlo/275MC//MuonMC_TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1_3.root', u'../results/Muon_Analysis/Monte_Carlo/275MC//MuonMC_TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1_4.root', u'../results/Muon_Analysis/Monte_Carlo/275MC//MuonMC_TTJets_TuneZ2_7TeV_madgraph_tauola_Summer11_PU_S4_START42_V11_v1_5.root'],
+    "Reweight" : [-1, -1, -1, -1],
+    "Weight" : [-1, -1, -1, -1]
+  }
+  "Weighting" : "Event weights will be calculated for constant number of events: 3701947. Weighted to 100pb^-1. Weight = 0.00425452.",
+  "Number of Events Processed" : 15750.0,
+  "Cut Flow" : 
+  {
+    "Tree Name" : "MC",
+    "MHT from jets above 30 is  < 60 GeV " : 
+    {
+      "efficiency" : 0.451666379894,
+      "T" : 7113.75,
+      "eT" : 5.50141451783,
+      "F" : 8636.26,
+      "eF" : 6.06160802539,
+      "Check if an event failed Good event selection" : 
+      {
+        "efficiency" : 0.999994019275,
+        "T" : 7113.69,
+        "eT" : 5.50139219375,
+        "F" : 0.04254528,
+        "eF" : 0.0134539683419,
+        "NumComJets Operation (num unsigned int >= 2)" : 
+        {
+          "efficiency" : 0.949452585083,
+          "T" : 6754.12,
+          "eT" : 5.36055148531,
+          "F" : 359.5791,
+          "eF" : 1.23686556051,
+          "Second jet Pt > 73.3333 GeV: " : 
+          {
+            "efficiency" : 0.538115265383,
+            "T" : 3634.494,
+            "eT" : 3.93230556567,
+            "F" : 3119.624,
+            "eF" : 3.64314725323,
+            " first Jet Eta < 2.5 rad): " : 
+            {
+              "efficiency" : 0.98413847971,
+              "T" : 3576.846,
+              "eT" : 3.90099263069,
+              "F" : 57.64861,
+              "eF" : 0.495244732191,
+              "NumComLeptons Operation (num e + mu unsigned int = 1)" : 
+              {
+                "efficiency" : 0.331724000264,
+                "T" : 1186.525,
+                "eT" : 2.24679651006,
+                "F" : 2390.319,
+                "eF" : 3.18899162127,
+                "NumComMuons Operation (num unsigned int = 1)" : 
+                {
+                  "efficiency" : 0.510395513357,
+                  "T" : 605.5977,
+                  "eT" : 1.60515443617,
+                  "F" : 580.9286,
+                  "eF" : 1.57212389251,
+                  "Check if a muon failed loose quality criteria" : 
+                  {
+                    "efficiency" : 1.0,
+                    "T" : 605.5977,
+                    "eT" : 1.60515443617,
+                    "F" : 0,
+                    "eF" : 0.0,
+                    "Check if a jet failed loose quality criteria" : 
+                    {
+                      "efficiency" : 0.944773790354,
+                      "T" : 572.1512,
+                      "eT" : 1.56020180464,
+                      "F" : 33.44477,
+                      "eF" : 0.377215092417,
+                      "Check if a electron failed loose quality criteria" : 
+                      {
+                        "efficiency" : 1.0,
+                        "T" : 572.1512,
+                        "eT" : 1.56020180464,
+                        "F" : 0,
+                        "eF" : 0.0,
+                        "Bad muon in a Jet" : 
+                        {
+                          "efficiency" : 0.960752817208,
+                          "T" : 549.6963,
+                          "eT" : 1.52927839464,
+                          "F" : 22.45534,
+                          "eF" : 0.309090214281,
+                          "HT less than325 GeV " : 
+                          {
+                            "efficiency" : 0.443015999377,
+                            "T" : 243.5243,
+                            "eT" : 1.01787960765,
+                            "F" : 306.1721,
+                            "eF" : 1.14132167374,
+                            "RECOMuonJetDRCut (make a cut on the DeltaR between the muon and the closest jet) " : 
+                            {
+                              "efficiency" : 0.993500938181,
+                              "T" : 241.9417,
+                              "eT" : 1.01456681668,
+                              "F" : 1.58268,
+                              "eF" : 0.0820582258925,
+                              "RECO 2ndMuon Invariant Mass +/- 25GeV from 91.2 are NOT kept" : 
+                              {
+                                "efficiency" : 0.916876221369,
+                                "T" : 221.8305,
+                                "eT" : 0.971484239737,
+                                "F" : 20.1111,
+                                "eF" : 0.292511818876,
+                                "CommonMHTCut (make a cut on the Pt of vector sum of RecoCommonJets) " : 
+                                {
+                                  "efficiency" : 0.569849953005,
+                                  "T" : 126.4101,
+                                  "eT" : 0.733359199387,
+                                  "F" : 95.4204,
+                                  "eF" : 0.637155999101,
+                                  "RECO pfMT Cut > 30GeV" : 
+                                  {
+                                    "efficiency" : 0.78321886214,
+                                    "T" : 99.0069,
+                                    "eT" : 0.649020035096,
+                                    "F" : 27.40336,
+                                    "eF" : 0.341449465399,
+                                    "Checking that  sum Vertex Pt / HT is  > 0.1 " : 
+                                    {
+                                      "efficiency" : 1.0,
+                                      "T" : 99.0069,
+                                      "eT" : 0.649020035096,
+                                      "F" : 0,
+                                      "eF" : 0.0,
+                                      "Dead ECAL cut 0.3 " : 
+                                      {
+                                        "efficiency" : 0.891796610498,
+                                        "T" : 88.294,
+                                        "eT" : 0.612901445416,
+                                        "F" : 10.71288,
+                                        "eF" : 0.213490280657,
+                                        "Passing MHT over MET cut of: 1.25 " : 
+                                        {
+                                          "efficiency" : 0.724906992463,
+                                          "T" : 64.00488,
+                                          "eT" : 0.521833569892,
+                                          "F" : 24.28904,
+                                          "eF" : 0.321462316274,
+                                          "Alpha_t  > 0.55 GeV): " : 
+                                          {
+                                            "efficiency" : 0.505450671323,
+                                            "T" : 32.35135,
+                                            "eT" : 0.370998150021,
+                                            "F" : 31.65361,
+                                            "eF" : 0.366975460887,
+                                            "HT 275 GeV " : 
+                                            {
+                                              "efficiency" : 0.32969474226,
+                                              "T" : 10.66607,
+                                              "eT" : 0.213023491354,
+                                              "F" : 21.68528,
+                                              "eF" : 0.303744550764,
+                                              "Muon Control plots " : 
+                                              {
+                                                "efficiency" : 1.0,
+                                                "T" : 10.66607,
+                                                "eT" : 0.213023491354,
+                                                "F" : 0,
+                                                "eF" : 0.0
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
